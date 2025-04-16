@@ -15,7 +15,7 @@
                 },
                 {
                     "Id": "key_fast_mode",
-                    "Name": "Fast Mode",
+                    "Name": "Fast mode",
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
@@ -27,7 +27,7 @@
                 },
                 {
                     "Id": "key_slow_mode",
-                    "Name": "Slow Mode",
+                    "Name": "Slow mode",
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
@@ -41,100 +41,118 @@
         },
         {
             "TabId": "PhotoModeParameters",
-            "TabName": "Photo Mode Parameters",
-            "Settings": [
+            "TabName": "Photo mode parameters",
+            "Sections": [
                 {
-                    "Id": "camera_floor_distance",
-                    "Name": "Camera Floor Distance",
-                    "Type": "slider_float",
-                    "Default": 0.05,
-                    "Description": "Minimum distance of camera from floor",
-                    "Options": {
-                        "Min": 0.0,
-                        "Max": 2.0
-                    }
-                },
-                {
-                    "Id": "camera_lookat_smoothing",
-                    "Name": "Camera Look-At Smoothing",
-                    "Type": "slider_float",
-                    "Default": 20.0,
-                    "Description": "How smoothly the camera focuses on targets",
-                    "Options": {
-                        "Min": 0.0,
-                        "Max": 100.0
-                    }
-                },
-                {
-                    "Id": "camera_movement_speed",
-                    "Name": "Camera Movement Speed",
-                    "Type": "slider_float",
-                    "Default": 6.0,
-                    "Description": "How fast the camera moves",
-                    "Options": {
-                        "Min": 0.1,
-                        "Max": 20.0
-                    }
-                },
-                {
-                    "Id": "camera_rotation_speed",
-                    "Name": "Camera Rotation Speed",
-                    "Type": "slider_float",
-                    "Default": 1.2,
-                    "Description": "How fast the camera rotates",
-                    "Options": {
-                        "Min": 0.1,
-                        "Max": 10.0
-                    }
-                },
-                {
-                    "Id": "unlimited_camera_range",
-                    "Name": "Unlimited Camera Distance",
-                    "Type": "checkbox",
-                    "Default": true,
-                    "Description": "Remove the camera distance limit.\nNote: Venturing too far with the camera might cause visual artifacts or performance issues."
-                },
-                {
-                    "Id": "camera_range",
-                    "Name": "Maximum camera distance",
-                    "Type": "slider_float",
-                    "Default": 25.0,
-                    "Description": "Maximum camera distance from focus point",
-                    "Options": {
-                        "Min": 1,
-                        "Max": 100
-                    },
-                    "VisibleIf": {
-                        "Conditions": [
-                            {
-                                "ExpectedValue": false,
-                                "Operator": "==",
-                                "SettingId": "unlimited_camera_range"
+                    "SectionId": "camera_movement",
+                    "SectionName": "Camera movement",
+                    "Settings": [
+                        {
+                            "Id": "camera_movement_speed",
+                            "Name": "Base movement speed",
+                            "Type": "slider_float",
+                            "Default": 6.0,
+                            "Description": "How fast the camera moves",
+                            "Options": {
+                                "Min": 0.1,
+                                "Max": 20.0
                             }
-                        ]
-                    }
+                        },
+                        {
+                            "Id": "camera_rotation_speed",
+                            "Name": "Rotation speed",
+                            "Type": "slider_float",
+                            "Default": 1.2,
+                            "Description": "How fast the camera rotates",
+                            "Options": {
+                                "Min": 0.1,
+                                "Max": 10.0
+                            }
+                        },
+                        {
+                            "Id": "fast_mode_speed",
+                            "Name": "Fast mode speed",
+                            "Type": "slider_float",
+                            "Default": 18.0,
+                            "Description": "Camera movement speed when fast mode is activated (see MCM keybindings)",
+                            "Options": {
+                                "Min": 1.0,
+                                "Max": 50.0
+                            }
+                        },
+                        {
+                            "Id": "slow_mode_speed",
+                            "Name": "Slow mode speed",
+                            "Type": "slider_float",
+                            "Default": 2.4,
+                            "Description": "Camera movement speed when slow mode is activated (see MCM keybindings)",
+                            "Options": {
+                                "Min": 0.1,
+                                "Max": 5.0
+                            }
+                        }
+                    ]
                 },
                 {
-                    "Id": "fast_mode_speed",
-                    "Name": "Fast Mode Speed",
-                    "Type": "slider_float",
-                    "Default": 18.0,
-                    "Description": "Camera movement speed when Shift is pressed",
-                    "Options": {
-                        "Min": 1.0,
-                        "Max": 50.0
-                    }
+                    "SectionId": "camera_distance",
+                    "SectionName": "Camera distance",
+                    "Settings": [
+                        {
+                            "Id": "unlimited_camera_range",
+                            "Name": "Unlimited camera distance",
+                            "Type": "checkbox",
+                            "Default": true,
+                            "Description": "Remove the camera distance limit.\nNote: Venturing too far with the camera might cause visual artifacts or performance issues."
+                        },
+                        {
+                            "Id": "camera_range",
+                            "Name": "Maximum camera distance",
+                            "Type": "slider_float",
+                            "Default": 25.0,
+                            "Description": "Maximum camera distance from focus point",
+                            "Options": {
+                                "Min": 1,
+                                "Max": 100
+                            },
+                            "VisibleIf": {
+                                "Conditions": [
+                                    {
+                                        "ExpectedValue": false,
+                                        "Operator": "==",
+                                        "SettingId": "unlimited_camera_range"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "Id": "camera_floor_distance",
+                            "Name": "Minimum floor distance",
+                            "Type": "slider_float",
+                            "Default": 0.05,
+                            "Description": "Minimum distance of camera from floor",
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 2.0
+                            }
+                        }
+                    ]
                 },
                 {
-                    "Id": "slow_mode_speed",
-                    "Name": "Slow Mode Speed",
-                    "Type": "slider_float",
-                    "Default": 2.4,
-                    "Description": "Camera movement speed when Ctrl is pressed",
-                    "Options": {
-                        "Min": 0.1,
-                        "Max": 5.0
-                    }
+                    "SectionId": "camera_behavior",
+                    "SectionName": "Camera behavior",
+                    "Settings": [
+                        {
+                            "Id": "camera_lookat_smoothing",
+                            "Name": "Focus smoothing",
+                            "Type": "slider_float",
+                            "Default": 20.0,
+                            "Description": "How smoothly the camera focuses on targets",
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 100.0
+                            }
+                        }
+                    ]
                 }
             ]
         },
