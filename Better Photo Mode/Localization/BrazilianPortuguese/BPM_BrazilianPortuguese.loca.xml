@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentList>
     <content contentuid="hac6189beeac24a319733a69e9153a24edffb" version="1">Ative ou desative o mod sem precisar desinstalá-lo.</content>
-    <content contentuid="h127c19e502194072a05b3f7daae5f277e5ba" version="1">Enabled</content>
-    <content contentuid="hfe184661304c4eb4bd5adea36a82f47f11c9" version="1">General</content>
-    <content contentuid="h0083e76f41744091a175bcd00634d71c160c" version="1">Better Photo Mode</content>
-    <content contentuid="hd6415a4df27b4c89b53609a7e2f5e475gb17" version="1">Fast mode</content>
-    <content contentuid="hab4a3e7315274296ad8f88ab9adc96a50fd5" version="1">Key for toggling fast camera movement.</content>
-    <content contentuid="hf1daad1ea79f4cf194da64ae06466c1faa59" version="1">Slow mode</content>
-    <content contentuid="h6877b8fa8f144ee897a16819a636391b9b05" version="1">Key for toggling slow camera movement.</content>
-    <content contentuid="h02073dcfd84e47d89844ee1475717047bb5g" version="1">Photo mode parameters</content>
-    <content contentuid="h6d407be9a6be490c933da5cf8f984735955d" version="1">Camera movement</content>
-    <content contentuid="hdaa62e57ac3d493a8de686e7c434ac0e8046" version="1">Base movement speed</content>
-    <content contentuid="h85c4578d5d094ecc8e84315e7b0cfeaf43fg" version="1">How fast the camera moves</content>
-    <content contentuid="h88b0cb7f49094244a823a1486a0ea7b946ea" version="1">Rotation speed</content>
-    <content contentuid="h1f0a27f93a454e0f9f4b89400c258eff3g41" version="1">How fast the camera rotates</content>
-    <content contentuid="h8e4c1bc35aef46dfb4c4c2eb4eb84f59533b" version="1">Fast mode speed</content>
-    <content contentuid="h427b773e58794227be96eb89f828f142eg46" version="1">Camera movement speed when fast mode is activated (see MCM keybindings)</content>
-    <content contentuid="h4b48025f0bec453f94c5b1d3e9f79069fcce" version="1">Slow mode speed</content>
-    <content contentuid="h7a2e114acf4f4d1284029f62976891491bf6" version="1">Camera movement speed when slow mode is activated (see MCM keybindings)</content>
-    <content contentuid="h9e170e66330a4423bcdadadfcae8f2823134" version="1">Camera distance</content>
-    <content contentuid="h80f5f82f7f5246588e1790b8e06138234001" version="1">Unlimited camera distance</content>
-    <content contentuid="h9c36dcb7c50e434b8762e79586e8434cc8d9" version="1">Remove the camera distance limit.&lt;br&gt;Note: Venturing too far with the camera might cause visual artifacts or performance issues.</content>
-    <content contentuid="hb8c660e7f6804f90a31621dc79de5d7ce56f" version="1">Maximum camera distance</content>
-    <content contentuid="h24300d70839b4ce181890d5769c0fd62f556" version="1">Maximum camera distance from focus point</content>
-    <content contentuid="h3bec3efb19884b5081de060749a4adcb43b8" version="1">Minimum floor distance</content>
-    <content contentuid="h75ae427ec65e4285a5ee7520e1cad2afgc3b" version="1">Minimum distance of camera from floor</content>
-    <content contentuid="h6403fbb776d7431f88a9573d1580c6f0e743" version="1">Camera behavior</content>
-    <content contentuid="h138ca8f50c2d48e18ec4ed00acf9e5494785" version="1">Focus smoothing</content>
-    <content contentuid="h5e7e73a388864211b9c9c7bd6f5ce6e741c1" version="1">How smoothly the camera focuses on targets</content>
-    <content contentuid="hd035ad7f7065463b9d0761463dff8f05b8e5" version="1">Debug</content>
-    <content contentuid="h98265a465a0345d8826fb6c070a3a481a676" version="1">Debug</content>
-    <content contentuid="ha9ec77b2bbe04d9f806315f08a0be343b7cf" version="1">Debug level</content>
-    <content contentuid="h39166eb85af947f2b456babce81edf31ec5g" version="1">0 = no debug, 1 = basic debug, 2 = verbose debug.</content>
+    <content contentuid="h127c19e502194072a05b3f7daae5f277e5ba" version="1">Ativado</content>
+    <content contentuid="hfe184661304c4eb4bd5adea36a82f47f11c9" version="1">Geral</content>
+    <content contentuid="h0083e76f41744091a175bcd00634d71c160c" version="1">Modo Foto Melhor</content>
+    <content contentuid="hd6415a4df27b4c89b53609a7e2f5e475gb17" version="1">Modo rápido</content>
+    <content contentuid="hab4a3e7315274296ad8f88ab9adc96a50fd5" version="1">Tecla para alternar o movimento rápido da câmera.</content>
+    <content contentuid="hf1daad1ea79f4cf194da64ae06466c1faa59" version="1">Modo lento</content>
+    <content contentuid="h6877b8fa8f144ee897a16819a636391b9b05" version="1">Tecla para alternar o movimento lento da câmera.</content>
+    <content contentuid="h02073dcfd84e47d89844ee1475717047bb5g" version="1">Parâmetros do modo foto</content>
+    <content contentuid="h6d407be9a6be490c933da5cf8f984735955d" version="1">Movimento da câmera</content>
+    <content contentuid="hdaa62e57ac3d493a8de686e7c434ac0e8046" version="1">Velocidade base de movimento</content>
+    <content contentuid="h85c4578d5d094ecc8e84315e7b0cfeaf43fg" version="1">Quão rápido a câmera se move</content>
+    <content contentuid="h88b0cb7f49094244a823a1486a0ea7b946ea" version="1">Velocidade de rotação</content>
+    <content contentuid="h1f0a27f93a454e0f9f4b89400c258eff3g41" version="1">Quão rápido a câmera gira</content>
+    <content contentuid="h8e4c1bc35aef46dfb4c4c2eb4eb84f59533b" version="1">Velocidade no modo rápido</content>
+    <content contentuid="h427b773e58794227be96eb89f828f142eg46" version="1">Velocidade de movimento da câmera quando o modo rápido está ativado (veja atalhos do MCM)</content>
+    <content contentuid="h4b48025f0bec453f94c5b1d3e9f79069fcce" version="1">Velocidade no modo lento</content>
+    <content contentuid="h7a2e114acf4f4d1284029f62976891491bf6" version="1">Velocidade de movimento da câmera quando o modo lento está ativado (veja atalhos do MCM)</content>
+    <content contentuid="h9e170e66330a4423bcdadadfcae8f2823134" version="1">Distância da câmera</content>
+    <content contentuid="h80f5f82f7f5246588e1790b8e06138234001" version="1">Distância ilimitada da câmera</content>
+    <content contentuid="h9c36dcb7c50e434b8762e79586e8434cc8d9" version="1">Remove o limite de distância da câmera.&lt;br&gt;Nota: Ir muito longe com a câmera pode causar artefatos visuais ou problemas de desempenho.</content>
+    <content contentuid="hb8c660e7f6804f90a31621dc79de5d7ce56f" version="1">Distância máxima da câmera</content>
+    <content contentuid="h24300d70839b4ce181890d5769c0fd62f556" version="1">Distância máxima da câmera do ponto de foco</content>
+    <content contentuid="h3bec3efb19884b5081de060749a4adcb43b8" version="1">Distância mínima do chão</content>
+    <content contentuid="h75ae427ec65e4285a5ee7520e1cad2afgc3b" version="1">Distância mínima da câmera do chão</content>
+    <content contentuid="h6403fbb776d7431f88a9573d1580c6f0e743" version="1">Comportamento da câmera</content>
+    <content contentuid="h138ca8f50c2d48e18ec4ed00acf9e5494785" version="1">Suavização do foco</content>
+    <content contentuid="h5e7e73a388864211b9c9c7bd6f5ce6e741c1" version="1">Quão suavemente a câmera foca nos alvos</content>
+    <content contentuid="hd035ad7f7065463b9d0761463dff8f05b8e5" version="1">Depuração</content>
+    <content contentuid="h98265a465a0345d8826fb6c070a3a481a676" version="1">Depuração</content>
+    <content contentuid="ha9ec77b2bbe04d9f806315f08a0be343b7cf" version="1">Nível de depuração</content>
+    <content contentuid="h39166eb85af947f2b456babce81edf31ec5g" version="1">0 = sem depuração, 1 = depuração básica, 2 = depuração detalhada.</content>
 </contentList>
