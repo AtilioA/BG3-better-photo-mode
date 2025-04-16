@@ -18,7 +18,7 @@
         <node id="ModuleInfo">
           <attribute id="Author" type="LSString" value="Volitio" />
           <attribute id="CharacterCreationLevelName" type="FixedString" value="" />
-          <attribute id="Description" type="LSString" value="Customize Photo Mode camera parameters including movement speed, rotation speed, and range." />
+          <attribute id="Description" type="LSString" value="Customize Photo Mode camera parameters including movement speed, rotation speed, max range, etc." />
           <attribute id="Folder" type="LSString" value="BetterPhotoMode" />
           <attribute id="LobbyLevelName" type="FixedString" value="" />
           <attribute id="MD5" type="LSString" value="" />

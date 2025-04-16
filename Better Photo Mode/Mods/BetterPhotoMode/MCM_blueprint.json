@@ -6,64 +6,68 @@
     },
     "Tabs": [
         {
-            "TabId": "General",
-            "TabName": "General",
-            "Handles": {
-                "NameHandle": "hfe184661304c4eb4bd5adea36a82f47f11c9"
-            },
-            "Settings": [
-                {
-                    "Id": "mod_enabled",
-                    "Name": "Enabled",
-                    "Handles": {
-                        "NameHandle": "h127c19e502194072a05b3f7daae5f277e5ba",
-                        "DescriptionHandle": "hac6189beeac24a319733a69e9153a24edffb"
-                    },
-                    "Type": "checkbox",
-                    "Default": true,
-                    "Description": "Toggle the mod on/off without having to uninstall it."
-                },
-                {
-                    "Id": "key_fast_mode",
-                    "Name": "Fast mode",
-                    "Handles": {
-                        "NameHandle": "hd6415a4df27b4c89b53609a7e2f5e475gb17",
-                        "DescriptionHandle": "hab4a3e7315274296ad8f88ab9adc96a50fd5"
-                    },
-                    "Type": "keybinding_v2",
-                    "Default": {
-                        "Keyboard": {
-                            "Key": "F",
-                            "ModifierKeys": ["LShift"]
-                        }
-                    },
-                    "Description": "Key for toggling fast camera movement."
-                },
-                {
-                    "Id": "key_slow_mode",
-                    "Name": "Slow mode",
-                    "Handles": {
-                        "NameHandle": "hf1daad1ea79f4cf194da64ae06466c1faa59",
-                        "DescriptionHandle": "h6877b8fa8f144ee897a16819a636391b9b05"
-                    },
-                    "Type": "keybinding_v2",
-                    "Default": {
-                        "Keyboard": {
-                            "Key": "F",
-                            "ModifierKeys": ["LCtrl"]
-                        }
-                    },
-                    "Description": "Key for toggling slow camera movement."
-                }
-            ]
-        },
-        {
             "TabId": "PhotoModeParameters",
             "TabName": "Photo mode parameters",
             "Handles": {
                 "NameHandle": "h02073dcfd84e47d89844ee1475717047bb5g"
             },
             "Sections": [
+                {
+                    "SectionId": "general_settings",
+                    "SectionName": "General settings",
+                    "Handles": {
+                        "NameHandle": "hfe184661304c4eb4bd5adea36a82f47f11c9"
+                    },
+                    "Settings": [
+                        {
+                            "Id": "mod_enabled",
+                            "Name": "Enabled",
+                            "Handles": {
+                                "NameHandle": "h127c19e502194072a05b3f7daae5f277e5ba",
+                                "DescriptionHandle": "hac6189beeac24a319733a69e9153a24edffb"
+                            },
+                            "Type": "checkbox",
+                            "Default": true,
+                            "Description": "Toggle the mod on/off without having to uninstall it."
+                        },
+                        {
+                            "Id": "key_fast_mode",
+                            "Name": "Fast mode",
+                            "Handles": {
+                                "NameHandle": "hd6415a4df27b4c89b53609a7e2f5e475gb17",
+                                "DescriptionHandle": "hab4a3e7315274296ad8f88ab9adc96a50fd5"
+                            },
+                            "Type": "keybinding_v2",
+                            "Default": {
+                                "Keyboard": {
+                                    "Key": "F",
+                                    "ModifierKeys": [
+                                        "LShift"
+                                    ]
+                                }
+                            },
+                            "Description": "Key for toggling fast camera movement."
+                        },
+                        {
+                            "Id": "key_slow_mode",
+                            "Name": "Slow mode",
+                            "Handles": {
+                                "NameHandle": "hf1daad1ea79f4cf194da64ae06466c1faa59",
+                                "DescriptionHandle": "h6877b8fa8f144ee897a16819a636391b9b05"
+                            },
+                            "Type": "keybinding_v2",
+                            "Default": {
+                                "Keyboard": {
+                                    "Key": "F",
+                                    "ModifierKeys": [
+                                        "LCtrl"
+                                    ]
+                                }
+                            },
+                            "Description": "Key for toggling slow camera movement."
+                        }
+                    ]
+                },
                 {
                     "SectionId": "camera_movement",
                     "SectionName": "Camera movement",
@@ -83,7 +87,7 @@
                             "Description": "How fast the camera moves",
                             "Options": {
                                 "Min": 0.1,
-                                "Max": 20.0
+                                "Max": 50.0
                             }
                         },
                         {
@@ -97,8 +101,8 @@
                             "Default": 1.2,
                             "Description": "How fast the camera rotates",
                             "Options": {
-                                "Min": 0.1,
-                                "Max": 10.0
+                                "Min": 0.05,
+                                "Max": 2.0
                             }
                         },
                         {
@@ -108,12 +112,12 @@
                                 "NameHandle": "h8e4c1bc35aef46dfb4c4c2eb4eb84f59533b",
                                 "DescriptionHandle": "h427b773e58794227be96eb89f828f142eg46"
                             },
-                            "Type": "slider_float",
-                            "Default": 18.0,
+                            "Type": "slider_int",
+                            "Default": 15,
                             "Description": "Camera movement speed when fast mode is activated (see MCM keybindings)",
                             "Options": {
-                                "Min": 1.0,
-                                "Max": 50.0
+                                "Min": 5,
+                                "Max": 100
                             }
                         },
                         {
@@ -124,7 +128,7 @@
                                 "DescriptionHandle": "h7a2e114acf4f4d1284029f62976891491bf6"
                             },
                             "Type": "slider_float",
-                            "Default": 2.4,
+                            "Default": 2.0,
                             "Description": "Camera movement speed when slow mode is activated (see MCM keybindings)",
                             "Options": {
                                 "Min": 0.1,
@@ -158,8 +162,8 @@
                                 "NameHandle": "hb8c660e7f6804f90a31621dc79de5d7ce56f",
                                 "DescriptionHandle": "h24300d70839b4ce181890d5769c0fd62f556"
                             },
-                            "Type": "slider_float",
-                            "Default": 25.0,
+                            "Type": "slider_int",
+                            "Default": 25,
                             "Description": "Maximum camera distance from focus point",
                             "Options": {
                                 "Min": 1,
@@ -206,12 +210,12 @@
                                 "NameHandle": "h138ca8f50c2d48e18ec4ed00acf9e5494785",
                                 "DescriptionHandle": "h5e7e73a388864211b9c9c7bd6f5ce6e741c1"
                             },
-                            "Type": "slider_float",
-                            "Default": 20.0,
+                            "Type": "slider_int",
+                            "Default": 20,
                             "Description": "How smoothly the camera focuses on targets",
                             "Options": {
-                                "Min": 0.0,
-                                "Max": 100.0
+                                "Min": 0,
+                                "Max": 100
                             }
                         }
                     ]
