@@ -1,14 +1,24 @@
 {
     "SchemaVersion": 1,
     "ModName": "Better Photo Mode",
+    "Handles": {
+        "NameHandle": "h0083e76f41744091a175bcd00634d71c160c"
+    },
     "Tabs": [
         {
             "TabId": "General",
             "TabName": "General",
+            "Handles": {
+                "NameHandle": "hfe184661304c4eb4bd5adea36a82f47f11c9"
+            },
             "Settings": [
                 {
                     "Id": "mod_enabled",
                     "Name": "Enabled",
+                    "Handles": {
+                        "NameHandle": "h127c19e502194072a05b3f7daae5f277e5ba",
+                        "DescriptionHandle": "hac6189beeac24a319733a69e9153a24edffb"
+                    },
                     "Type": "checkbox",
                     "Default": true,
                     "Description": "Toggle the mod on/off without having to uninstall it."
@@ -16,6 +26,10 @@
                 {
                     "Id": "key_fast_mode",
                     "Name": "Fast mode",
+                    "Handles": {
+                        "NameHandle": "hd6415a4df27b4c89b53609a7e2f5e475gb17",
+                        "DescriptionHandle": "hab4a3e7315274296ad8f88ab9adc96a50fd5"
+                    },
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
@@ -28,6 +42,10 @@
                 {
                     "Id": "key_slow_mode",
                     "Name": "Slow mode",
+                    "Handles": {
+                        "NameHandle": "hf1daad1ea79f4cf194da64ae06466c1faa59",
+                        "DescriptionHandle": "h6877b8fa8f144ee897a16819a636391b9b05"
+                    },
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
@@ -42,14 +60,24 @@
         {
             "TabId": "PhotoModeParameters",
             "TabName": "Photo mode parameters",
+            "Handles": {
+                "NameHandle": "h02073dcfd84e47d89844ee1475717047bb5g"
+            },
             "Sections": [
                 {
                     "SectionId": "camera_movement",
                     "SectionName": "Camera movement",
+                    "Handles": {
+                        "NameHandle": "h6d407be9a6be490c933da5cf8f984735955d"
+                    },
                     "Settings": [
                         {
                             "Id": "camera_movement_speed",
                             "Name": "Base movement speed",
+                            "Handles": {
+                                "NameHandle": "hdaa62e57ac3d493a8de686e7c434ac0e8046",
+                                "DescriptionHandle": "h85c4578d5d094ecc8e84315e7b0cfeaf43fg"
+                            },
                             "Type": "slider_float",
                             "Default": 6.0,
                             "Description": "How fast the camera moves",
@@ -61,6 +89,10 @@
                         {
                             "Id": "camera_rotation_speed",
                             "Name": "Rotation speed",
+                            "Handles": {
+                                "NameHandle": "h88b0cb7f49094244a823a1486a0ea7b946ea",
+                                "DescriptionHandle": "h1f0a27f93a454e0f9f4b89400c258eff3g41"
+                            },
                             "Type": "slider_float",
                             "Default": 1.2,
                             "Description": "How fast the camera rotates",
@@ -72,6 +104,10 @@
                         {
                             "Id": "fast_mode_speed",
                             "Name": "Fast mode speed",
+                            "Handles": {
+                                "NameHandle": "h8e4c1bc35aef46dfb4c4c2eb4eb84f59533b",
+                                "DescriptionHandle": "h427b773e58794227be96eb89f828f142eg46"
+                            },
                             "Type": "slider_float",
                             "Default": 18.0,
                             "Description": "Camera movement speed when fast mode is activated (see MCM keybindings)",
@@ -83,6 +119,10 @@
                         {
                             "Id": "slow_mode_speed",
                             "Name": "Slow mode speed",
+                            "Handles": {
+                                "NameHandle": "h4b48025f0bec453f94c5b1d3e9f79069fcce",
+                                "DescriptionHandle": "h7a2e114acf4f4d1284029f62976891491bf6"
+                            },
                             "Type": "slider_float",
                             "Default": 2.4,
                             "Description": "Camera movement speed when slow mode is activated (see MCM keybindings)",
@@ -96,10 +136,17 @@
                 {
                     "SectionId": "camera_distance",
                     "SectionName": "Camera distance",
+                    "Handles": {
+                        "NameHandle": "h9e170e66330a4423bcdadadfcae8f2823134"
+                    },
                     "Settings": [
                         {
                             "Id": "unlimited_camera_range",
                             "Name": "Unlimited camera distance",
+                            "Handles": {
+                                "NameHandle": "h80f5f82f7f5246588e1790b8e06138234001",
+                                "DescriptionHandle": "h9c36dcb7c50e434b8762e79586e8434cc8d9"
+                            },
                             "Type": "checkbox",
                             "Default": true,
                             "Description": "Remove the camera distance limit.\nNote: Venturing too far with the camera might cause visual artifacts or performance issues."
@@ -107,6 +154,10 @@
                         {
                             "Id": "camera_range",
                             "Name": "Maximum camera distance",
+                            "Handles": {
+                                "NameHandle": "hb8c660e7f6804f90a31621dc79de5d7ce56f",
+                                "DescriptionHandle": "h24300d70839b4ce181890d5769c0fd62f556"
+                            },
                             "Type": "slider_float",
                             "Default": 25.0,
                             "Description": "Maximum camera distance from focus point",
@@ -127,6 +178,10 @@
                         {
                             "Id": "camera_floor_distance",
                             "Name": "Minimum floor distance",
+                            "Handles": {
+                                "NameHandle": "h3bec3efb19884b5081de060749a4adcb43b8",
+                                "DescriptionHandle": "h75ae427ec65e4285a5ee7520e1cad2afgc3b"
+                            },
                             "Type": "slider_float",
                             "Default": 0.05,
                             "Description": "Minimum distance of camera from floor",
@@ -140,10 +195,17 @@
                 {
                     "SectionId": "camera_behavior",
                     "SectionName": "Camera behavior",
+                    "Handles": {
+                        "NameHandle": "h6403fbb776d7431f88a9573d1580c6f0e743"
+                    },
                     "Settings": [
                         {
                             "Id": "camera_lookat_smoothing",
                             "Name": "Focus smoothing",
+                            "Handles": {
+                                "NameHandle": "h138ca8f50c2d48e18ec4ed00acf9e5494785",
+                                "DescriptionHandle": "h5e7e73a388864211b9c9c7bd6f5ce6e741c1"
+                            },
                             "Type": "slider_float",
                             "Default": 20.0,
                             "Description": "How smoothly the camera focuses on targets",
@@ -159,14 +221,24 @@
         {
             "TabId": "debug",
             "TabName": "Debug",
+            "Handles": {
+                "NameHandle": "hd035ad7f7065463b9d0761463dff8f05b8e5"
+            },
             "Sections": [
                 {
                     "SectionId": "debug",
                     "SectionName": "Debug",
+                    "Handles": {
+                        "NameHandle": "h98265a465a0345d8826fb6c070a3a481a676"
+                    },
                     "Settings": [
                         {
                             "Id": "debug_level",
                             "Name": "Debug level",
+                            "Handles": {
+                                "NameHandle": "ha9ec77b2bbe04d9f806315f08a0be343b7cf",
+                                "DescriptionHandle": "h39166eb85af947f2b456babce81edf31ec5g"
+                            },
                             "Type": "slider_int",
                             "Default": 0,
                             "Options": {
