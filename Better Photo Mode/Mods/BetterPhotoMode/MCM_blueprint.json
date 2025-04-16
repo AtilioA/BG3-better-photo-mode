@@ -1,5 +1,6 @@
 {
     "SchemaVersion": 1,
+    "ModName": "Better Photo Mode",
     "Tabs": [
         {
             "TabId": "General",
@@ -50,8 +51,7 @@
                     "Description": "Minimum distance of camera from floor",
                     "Options": {
                         "Min": 0.0,
-                        "Max": 2.0,
-                        "Step": 0.01
+                        "Max": 2.0
                     }
                 },
                 {
@@ -62,8 +62,7 @@
                     "Description": "How smoothly the camera focuses on targets",
                     "Options": {
                         "Min": 0.0,
-                        "Max": 100.0,
-                        "Step": 1.0
+                        "Max": 100.0
                     }
                 },
                 {
@@ -74,8 +73,7 @@
                     "Description": "How fast the camera moves",
                     "Options": {
                         "Min": 0.1,
-                        "Max": 20.0,
-                        "Step": 0.1
+                        "Max": 20.0
                     }
                 },
                 {
@@ -86,20 +84,34 @@
                     "Description": "How fast the camera rotates",
                     "Options": {
                         "Min": 0.1,
-                        "Max": 10.0,
-                        "Step": 0.1
+                        "Max": 10.0
                     }
                 },
                 {
+                    "Id": "unlimited_camera_range",
+                    "Name": "Unlimited Camera Distance",
+                    "Type": "checkbox",
+                    "Default": true,
+                    "Description": "Remove the camera distance limit.\nNote: Venturing too far with the camera might cause visual artifacts or performance issues."
+                },
+                {
                     "Id": "camera_range",
-                    "Name": "Camera Range",
+                    "Name": "Maximum camera distance",
                     "Type": "slider_float",
                     "Default": 25.0,
-                    "Description": "Maximum camera distance",
+                    "Description": "Maximum camera distance from focus point",
                     "Options": {
-                        "Min": 1.0,
-                        "Max": 100.0,
-                        "Step": 1.0
+                        "Min": 1,
+                        "Max": 100
+                    },
+                    "VisibleIf": {
+                        "Conditions": [
+                            {
+                                "ExpectedValue": false,
+                                "Operator": "==",
+                                "SettingId": "unlimited_camera_range"
+                            }
+                        ]
                     }
                 },
                 {
@@ -110,8 +122,7 @@
                     "Description": "Camera movement speed when Shift is pressed",
                     "Options": {
                         "Min": 1.0,
-                        "Max": 50.0,
-                        "Step": 0.1
+                        "Max": 50.0
                     }
                 },
                 {
@@ -122,8 +133,7 @@
                     "Description": "Camera movement speed when Ctrl is pressed",
                     "Options": {
                         "Min": 0.1,
-                        "Max": 5.0,
-                        "Step": 0.1
+                        "Max": 5.0
                     }
                 }
             ]

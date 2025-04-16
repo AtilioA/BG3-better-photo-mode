@@ -19,14 +19,16 @@ function BPM.PhotoCamera.ApplyCameraSettings()
         statsManager.ExtraData.PhotoModeCameraLookAtSmoothing = MCM.Get("camera_lookat_smoothing")
         statsManager.ExtraData.PhotoModeCameraMovementSpeed = MCM.Get("camera_movement_speed")
         statsManager.ExtraData.PhotoModeCameraRotationSpeed = MCM.Get("camera_rotation_speed")
-        statsManager.ExtraData.PhotoModeCameraRange = MCM.Get("camera_range")
+
+        -- Apply camera range using CameraRange module
+        BPM.CameraRange.ApplyRange()
 
         BPMPrint(2, "Applied camera settings: " ..
             "Floor Distance=" .. tostring(MCM.Get("camera_floor_distance")) ..
             ", Look-At Smoothing=" .. tostring(MCM.Get("camera_lookat_smoothing")) ..
             ", Movement Speed=" .. tostring(MCM.Get("camera_movement_speed")) ..
             ", Rotation Speed=" .. tostring(MCM.Get("camera_rotation_speed")) ..
-            ", Range=" .. tostring(MCM.Get("camera_range")))
+            ", Range=" .. tostring(BPM.CameraRange.GetEffectiveRange()))
     else
         BPM.PhotoCamera.ApplyDefaultSettings()
     end
@@ -44,7 +46,9 @@ function BPM.PhotoCamera.ApplyDefaultSettings()
     statsManager.ExtraData.PhotoModeCameraLookAtSmoothing = defaults.PhotoModeCameraLookAtSmoothing
     statsManager.ExtraData.PhotoModeCameraMovementSpeed = defaults.PhotoModeCameraMovementSpeed
     statsManager.ExtraData.PhotoModeCameraRotationSpeed = defaults.PhotoModeCameraRotationSpeed
-    statsManager.ExtraData.PhotoModeCameraRange = defaults.PhotoModeCameraRange
+
+    -- Apply camera range using CameraRange module
+    BPM.CameraRange.ApplyRange()
 
     BPMPrint(2, "Applied default camera settings")
 end

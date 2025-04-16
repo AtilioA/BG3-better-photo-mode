@@ -23,5 +23,6 @@ function BPMPrint(level, message)
     end
 end
 
--- Load the PhotoCamera module
+-- Load modules
+Ext.Require("Shared/CameraRange.lua")
 Ext.Require("Shared/PhotoCamera.lua")
