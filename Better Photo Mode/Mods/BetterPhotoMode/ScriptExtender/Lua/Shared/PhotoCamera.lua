@@ -49,7 +49,17 @@ function BPM.PhotoCamera.ApplyDefaultSettings()
     BPMPrint(2, "Applied default camera settings")
 end
 
--- Toggle fast camera mode (when Shift is pressed)
+-- Helper function to restore original movement speed
+function BPM.PhotoCamera.RestoreOriginalSpeed()
+    local statsManager = Ext.Stats.GetStatsManager()
+    if BPM.PhotoCamera.OriginalMovementSpeed then
+        statsManager.ExtraData.PhotoModeCameraMovementSpeed = BPM.PhotoCamera.OriginalMovementSpeed
+        BPM.PhotoCamera.OriginalMovementSpeed = nil
+        BPMPrint(2, "Restored original speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
+    end
+end
+
+-- Toggle fast camera mode
 function BPM.PhotoCamera.ToggleFastMode()
     -- Only proceed if mod is enabled
     if not MCM.Get("mod_enabled") then
@@ -57,6 +67,13 @@ function BPM.PhotoCamera.ToggleFastMode()
     end
 
     local statsManager = Ext.Stats.GetStatsManager()
+
+    -- If slow mode is active, deactivate it first
+    if BPM.PhotoCamera.SlowModeActive then
+        BPMPrint(1, "Deactivating slow mode before toggling fast mode")
+        BPM.PhotoCamera.SlowModeActive = false
+        BPM.PhotoCamera.RestoreOriginalSpeed()
+    end
 
     -- Toggle fast mode
     BPM.PhotoCamera.FastModeActive = not BPM.PhotoCamera.FastModeActive
@@ -68,16 +85,12 @@ function BPM.PhotoCamera.ToggleFastMode()
         BPMPrint(1, "Fast mode activated. Speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
     else
         -- Restore original speed
-        if BPM.PhotoCamera.OriginalMovementSpeed then
-            statsManager.ExtraData.PhotoModeCameraMovementSpeed = BPM.PhotoCamera.OriginalMovementSpeed
-            BPM.PhotoCamera.OriginalMovementSpeed = nil
-            BPMPrint(1,
-                "Fast mode deactivated. Speed restored to: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
-        end
+        BPM.PhotoCamera.RestoreOriginalSpeed()
+        BPMPrint(1, "Fast mode deactivated.")
     end
 end
 
--- Toggle slow camera mode (when Ctrl is pressed)
+-- Toggle slow camera mode
 function BPM.PhotoCamera.ToggleSlowMode()
     -- Only proceed if mod is enabled
     if not MCM.Get("mod_enabled") then
@@ -85,6 +98,13 @@ function BPM.PhotoCamera.ToggleSlowMode()
     end
 
     local statsManager = Ext.Stats.GetStatsManager()
+
+    -- If fast mode is active, deactivate it first
+    if BPM.PhotoCamera.FastModeActive then
+        BPMPrint(1, "Deactivating fast mode before toggling slow mode")
+        BPM.PhotoCamera.FastModeActive = false
+        BPM.PhotoCamera.RestoreOriginalSpeed()
+    end
 
     -- Toggle slow mode
     BPM.PhotoCamera.SlowModeActive = not BPM.PhotoCamera.SlowModeActive
@@ -96,12 +116,8 @@ function BPM.PhotoCamera.ToggleSlowMode()
         BPMPrint(1, "Slow mode activated. Speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
     else
         -- Restore original speed
-        if BPM.PhotoCamera.OriginalMovementSpeed then
-            statsManager.ExtraData.PhotoModeCameraMovementSpeed = BPM.PhotoCamera.OriginalMovementSpeed
-            BPM.PhotoCamera.OriginalMovementSpeed = nil
-            BPMPrint(1,
-                "Slow mode deactivated. Speed restored to: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
-        end
+        BPM.PhotoCamera.RestoreOriginalSpeed()
+        BPMPrint(1, "Slow mode deactivated.")
     end
 end
 
