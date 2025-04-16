@@ -14,15 +14,17 @@ BPM.Constants = {
     }
 }
 
--- Print function for BPM
-function BPMPrint(level, message)
-    local debugLevel = MCM.Get("debug_level")
-
-    if level <= debugLevel then
-        Ext.Utils.Print("[BPM] " .. message)
+---Ext.Require files at the path
+---@param path string
+---@param files string[]
+function RequireFiles(path, files)
+    for _, file in pairs(files) do
+        Ext.Require(string.format("%s%s.lua", path, file))
     end
 end
 
--- Load modules
-Ext.Require("Shared/CameraRange.lua")
-Ext.Require("Shared/PhotoCamera.lua")
+RequireFiles("Shared/", {
+    "Helpers/_Init",
+    "CameraRange",
+    "PhotoCamera"
+})
