@@ -12,6 +12,30 @@
                     "Type": "checkbox",
                     "Default": true,
                     "Description": "Toggle the mod on/off without having to uninstall it."
+                },
+                {
+                    "Id": "key_fast_mode",
+                    "Name": "Fast Mode",
+                    "Type": "keybinding_v2",
+                    "Default": {
+                        "Keyboard": {
+                            "Key": "LSHIFT",
+                            "ModifierKeys": []
+                        }
+                    },
+                    "Description": "Key for toggling fast camera movement."
+                },
+                {
+                    "Id": "key_slow_mode",
+                    "Name": "Slow Mode",
+                    "Type": "keybinding_v2",
+                    "Default": {
+                        "Keyboard": {
+                            "Key": "LCTRL",
+                            "ModifierKeys": []
+                        }
+                    },
+                    "Description": "Key for toggling slow camera movement."
                 }
             ]
         },
