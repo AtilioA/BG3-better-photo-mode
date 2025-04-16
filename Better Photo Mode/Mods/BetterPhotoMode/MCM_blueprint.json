@@ -33,8 +33,8 @@
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
-                            "Key": "LSHIFT",
-                            "ModifierKeys": []
+                            "Key": "F",
+                            "ModifierKeys": ["LShift"]
                         }
                     },
                     "Description": "Key for toggling fast camera movement."
@@ -49,8 +49,8 @@
                     "Type": "keybinding_v2",
                     "Default": {
                         "Keyboard": {
-                            "Key": "LCTRL",
-                            "ModifierKeys": []
+                            "Key": "F",
+                            "ModifierKeys": ["LCtrl"]
                         }
                     },
                     "Description": "Key for toggling slow camera movement."
