@@ -1,51 +1,39 @@
--- Initialize BPM client
-BPMPrint(0, "Initializing BPM Client")
+-- Listen for settings changes using ModEvents (modern approach)
+Ext.ModEvents.BG3MCM["MCM_Setting_Saved"]:Subscribe(function(payload)
+    if not payload or payload.modUUID ~= ModuleUUID then
+        return
+    end
 
--- Create keybinding for Shift key (Fast Mode)
-MCM.RegisterListener("Better Photo Mode", "settings_changed", function(mod, settings, changed)
-    if changed.mod_enabled ~= nil then
+    -- If mod_enabled setting changes
+    if payload.settingId == "mod_enabled" then
         BPM.PhotoCamera.ApplyCameraSettings()
     end
 
-    -- Update camera settings on any change
-    if changed.camera_floor_distance ~= nil or
-        changed.camera_lookat_smoothing ~= nil or
-        changed.camera_movement_speed ~= nil or
-        changed.camera_rotation_speed ~= nil or
-        changed.camera_range ~= nil then
+    -- Update camera settings on relevant changes
+    if payload.settingId == "camera_floor_distance" or
+        payload.settingId == "camera_lookat_smoothing" or
+        payload.settingId == "camera_movement_speed" or
+        payload.settingId == "camera_rotation_speed" or
+        payload.settingId == "camera_range" then
         BPM.PhotoCamera.ApplyCameraSettings()
     end
+end)
+
+-- Register keybinding callbacks for fast and slow modes
+MCM.SetKeybindingCallback("key_fast_mode", function()
+    -- if MCM.Get("mod_enabled") then
+    BPM.PhotoCamera.ToggleFastMode()
+    -- end
+end)
+
+MCM.SetKeybindingCallback("key_slow_mode", function()
+    -- if MCM.Get("mod_enabled") then
+    BPM.PhotoCamera.ToggleSlowMode()
+    -- end
 end)
 
 -- Initialize PhotoCamera module
 BPM.PhotoCamera.Initialize()
-
--- Handle key presses for fast and slow modes
-Ext.RegisterListener("InputEvent", function(event)
-    -- Only handle keydown events
-    if event.EventType == 1 then -- KeyDown = 1
-        local settings = MCM.GetMod("Better Photo Mode").GetSettings()
-
-        -- Only proceed if mod is enabled
-        if not settings.mod_enabled then
-            return
-        end
-
-        -- Check for Shift key (fast mode)
-        if event.InputType == 70 then               -- Left Shift = 70
-            if Input.Keyboard.IsKeyPressed(70) then -- Verify it's actually pressed
-                BPM.PhotoCamera.ToggleFastMode()
-            end
-        end
-
-        -- Check for Ctrl key (slow mode)
-        if event.InputType == 72 then               -- Left Control = 72
-            if Input.Keyboard.IsKeyPressed(72) then -- Verify it's actually pressed
-                BPM.PhotoCamera.ToggleSlowMode()
-            end
-        end
-    end
-end)
 
 local MODVERSION = Ext.Mod.GetMod(ModuleUUID).Info.ModVersion
 
