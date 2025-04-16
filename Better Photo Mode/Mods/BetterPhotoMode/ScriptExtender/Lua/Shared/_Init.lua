@@ -16,7 +16,7 @@ BPM.Constants = {
 
 -- Print function for BPM
 function BPMPrint(level, message)
-    local debugLevel = MCM.GetMod("Better Photo Mode").GetSettings().debug_level
+    local debugLevel = MCM.Get("debug_level")
 
     if level <= debugLevel then
         Ext.Utils.Print("[BPM] " .. message)
