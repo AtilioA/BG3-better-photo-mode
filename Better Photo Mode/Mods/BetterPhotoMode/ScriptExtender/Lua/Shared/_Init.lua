@@ -24,7 +24,8 @@ function RequireFiles(path, files)
 end
 
 RequireFiles("Shared/", {
+    "MCMHandler",
     "Helpers/_Init",
     "CameraRange",
-    "PhotoCamera"
+    "PhotoCamera",
 })
