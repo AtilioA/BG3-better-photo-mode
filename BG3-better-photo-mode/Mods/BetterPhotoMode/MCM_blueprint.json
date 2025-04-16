@@ -1,0 +1,132 @@
+{
+    "SchemaVersion": 1,
+    "ModName": "Better Photo Mode",
+    "Tabs": [
+        {
+            "TabId": "General",
+            "TabName": "General",
+            "Settings": [
+                {
+                    "Id": "mod_enabled",
+                    "Name": "Enabled",
+                    "Type": "checkbox",
+                    "Default": true,
+                    "Description": "Toggle the mod on/off without having to uninstall it."
+                }
+            ]
+        },
+        {
+            "TabId": "PhotoModeParameters",
+            "TabName": "Photo Mode Parameters",
+            "Settings": [
+                {
+                    "Id": "camera_floor_distance",
+                    "Name": "Camera Floor Distance",
+                    "Type": "slider_float",
+                    "Default": 0.05,
+                    "Description": "Minimum distance of camera from floor",
+                    "Options": {
+                        "Min": 0.0,
+                        "Max": 2.0,
+                        "Step": 0.01
+                    }
+                },
+                {
+                    "Id": "camera_lookat_smoothing",
+                    "Name": "Camera Look-At Smoothing",
+                    "Type": "slider_float",
+                    "Default": 20.0,
+                    "Description": "How smoothly the camera focuses on targets",
+                    "Options": {
+                        "Min": 0.0,
+                        "Max": 100.0,
+                        "Step": 1.0
+                    }
+                },
+                {
+                    "Id": "camera_movement_speed",
+                    "Name": "Camera Movement Speed",
+                    "Type": "slider_float",
+                    "Default": 6.0,
+                    "Description": "How fast the camera moves",
+                    "Options": {
+                        "Min": 0.1,
+                        "Max": 20.0,
+                        "Step": 0.1
+                    }
+                },
+                {
+                    "Id": "camera_rotation_speed",
+                    "Name": "Camera Rotation Speed",
+                    "Type": "slider_float",
+                    "Default": 1.2,
+                    "Description": "How fast the camera rotates",
+                    "Options": {
+                        "Min": 0.1,
+                        "Max": 10.0,
+                        "Step": 0.1
+                    }
+                },
+                {
+                    "Id": "camera_range",
+                    "Name": "Camera Range",
+                    "Type": "slider_float",
+                    "Default": 25.0,
+                    "Description": "Maximum camera distance",
+                    "Options": {
+                        "Min": 1.0,
+                        "Max": 100.0,
+                        "Step": 1.0
+                    }
+                },
+                {
+                    "Id": "fast_mode_speed",
+                    "Name": "Fast Mode Speed",
+                    "Type": "slider_float",
+                    "Default": 18.0,
+                    "Description": "Camera movement speed when Shift is pressed",
+                    "Options": {
+                        "Min": 1.0,
+                        "Max": 50.0,
+                        "Step": 0.1
+                    }
+                },
+                {
+                    "Id": "slow_mode_speed",
+                    "Name": "Slow Mode Speed",
+                    "Type": "slider_float",
+                    "Default": 2.4,
+                    "Description": "Camera movement speed when Ctrl is pressed",
+                    "Options": {
+                        "Min": 0.1,
+                        "Max": 5.0,
+                        "Step": 0.1
+                    }
+                }
+            ]
+        },
+        {
+            "TabId": "debug",
+            "TabName": "Debug",
+            "Sections": [
+                {
+                    "SectionId": "debug",
+                    "SectionName": "Debug",
+                    "Settings": [
+                        {
+                            "Id": "debug_level",
+                            "Name": "Debug level",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 2
+                            },
+                            "Description": "0 = no debug, 1 = basic debug, 2 = verbose debug."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
