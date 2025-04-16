@@ -4,33 +4,65 @@ BPM.PhotoCamera = {}
 -- Variables to track key states
 BPM.PhotoCamera.FastModeActive = false
 BPM.PhotoCamera.SlowModeActive = false
-BPM.PhotoCamera.OriginalMovementSpeed = nil
 
 -- Apply camera settings from MCM to the game
-function BPM.PhotoCamera.ApplyCameraSettings()
+-- @param settingId (optional) Specific setting to apply, or nil to apply all settings
+function BPM.PhotoCamera.ApplyCameraSettings(settingId)
     -- Check if mod is enabled
     if MCM.Get("mod_enabled") then
-        BPMPrint(1, "Applying camera settings from MCM")
+        BPMPrint(1, "Applying camera settings from MCM" .. (settingId and (": " .. settingId) or ""))
 
         local statsManager = Ext.Stats.GetStatsManager()
 
-        -- Apply settings
-        statsManager.ExtraData.PhotoModeCameraFloorDistance = MCM.Get("camera_floor_distance")
-        statsManager.ExtraData.PhotoModeCameraLookAtSmoothing = MCM.Get("camera_lookat_smoothing")
-        statsManager.ExtraData.PhotoModeCameraMovementSpeed = MCM.Get("camera_movement_speed")
-        statsManager.ExtraData.PhotoModeCameraRotationSpeed = MCM.Get("camera_rotation_speed")
+        -- Apply floor distance setting if requested or applying all
+        if settingId == nil or settingId == "camera_floor_distance" then
+            statsManager.ExtraData.PhotoModeCameraFloorDistance = MCM.Get("camera_floor_distance")
+            BPMPrint(2, "Applied floor distance: " .. tostring(MCM.Get("camera_floor_distance")))
+        end
 
-        -- Apply camera range using CameraRange module
-        BPM.CameraRange.ApplyRange()
+        -- Apply look-at smoothing setting if requested or applying all
+        if settingId == nil or settingId == "camera_lookat_smoothing" then
+            statsManager.ExtraData.PhotoModeCameraLookAtSmoothing = MCM.Get("camera_lookat_smoothing")
+            BPMPrint(2, "Applied look-at smoothing: " .. tostring(MCM.Get("camera_lookat_smoothing")))
+        end
 
-        BPMPrint(2, "Applied camera settings: " ..
-            "Floor Distance=" .. tostring(MCM.Get("camera_floor_distance")) ..
-            ", Look-At Smoothing=" .. tostring(MCM.Get("camera_lookat_smoothing")) ..
-            ", Movement Speed=" .. tostring(MCM.Get("camera_movement_speed")) ..
-            ", Rotation Speed=" .. tostring(MCM.Get("camera_rotation_speed")) ..
-            ", Range=" .. tostring(BPM.CameraRange.GetEffectiveRange()))
+        -- Apply rotation speed setting if requested or applying all
+        if settingId == nil or settingId == "camera_rotation_speed" then
+            statsManager.ExtraData.PhotoModeCameraRotationSpeed = MCM.Get("camera_rotation_speed")
+            BPMPrint(2, "Applied rotation speed: " .. tostring(MCM.Get("camera_rotation_speed")))
+        end
+
+        -- Apply camera movement speed if needed
+        if settingId == nil or
+            settingId == "camera_movement_speed" or
+            settingId == "fast_mode_speed" or
+            settingId == "slow_mode_speed" then
+            -- Only update the movement speed if we need to
+            local currentSpeed = BPM.PhotoCamera.GetCurrentSpeedSetting()
+            statsManager.ExtraData.PhotoModeCameraMovementSpeed = currentSpeed
+            BPMPrint(2, "Applied movement speed: " .. tostring(currentSpeed))
+        end
+
+        -- Apply camera range if needed
+        if settingId == nil or
+            settingId == "unlimited_camera_range" or
+            settingId == "camera_range" then
+            BPM.CameraRange.ApplyRange()
+            BPMPrint(2, "Applied camera range: " .. tostring(BPM.CameraRange.GetEffectiveRange()))
+        end
     else
         BPM.PhotoCamera.ApplyDefaultSettings()
+    end
+end
+
+-- Get the current speed setting based on active mode
+function BPM.PhotoCamera.GetCurrentSpeedSetting()
+    if BPM.PhotoCamera.FastModeActive then
+        return MCM.Get("fast_mode_speed")
+    elseif BPM.PhotoCamera.SlowModeActive then
+        return MCM.Get("slow_mode_speed")
+    else
+        return MCM.Get("camera_movement_speed")
     end
 end
 
@@ -53,16 +85,6 @@ function BPM.PhotoCamera.ApplyDefaultSettings()
     BPMPrint(2, "Applied default camera settings")
 end
 
--- Helper function to restore original movement speed
-function BPM.PhotoCamera.RestoreOriginalSpeed()
-    local statsManager = Ext.Stats.GetStatsManager()
-    if BPM.PhotoCamera.OriginalMovementSpeed then
-        statsManager.ExtraData.PhotoModeCameraMovementSpeed = BPM.PhotoCamera.OriginalMovementSpeed
-        BPM.PhotoCamera.OriginalMovementSpeed = nil
-        BPMPrint(2, "Restored original speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
-    end
-end
-
 -- Toggle fast camera mode
 function BPM.PhotoCamera.ToggleFastMode()
     -- Only proceed if mod is enabled
@@ -70,28 +92,18 @@ function BPM.PhotoCamera.ToggleFastMode()
         return
     end
 
-    local statsManager = Ext.Stats.GetStatsManager()
-
     -- If slow mode is active, deactivate it first
     if BPM.PhotoCamera.SlowModeActive then
         BPMPrint(1, "Deactivating slow mode before toggling fast mode")
         BPM.PhotoCamera.SlowModeActive = false
-        BPM.PhotoCamera.RestoreOriginalSpeed()
     end
 
     -- Toggle fast mode
     BPM.PhotoCamera.FastModeActive = not BPM.PhotoCamera.FastModeActive
+    BPMPrint(1, BPM.PhotoCamera.FastModeActive and "Fast mode activated" or "Fast mode deactivated")
 
-    if BPM.PhotoCamera.FastModeActive then
-        -- Store original speed and apply fast mode
-        BPM.PhotoCamera.OriginalMovementSpeed = statsManager.ExtraData.PhotoModeCameraMovementSpeed
-        statsManager.ExtraData.PhotoModeCameraMovementSpeed = MCM.Get("fast_mode_speed")
-        BPMPrint(1, "Fast mode activated. Speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
-    else
-        -- Restore original speed
-        BPM.PhotoCamera.RestoreOriginalSpeed()
-        BPMPrint(1, "Fast mode deactivated.")
-    end
+    -- Apply only the movement speed setting to reflect the new mode
+    BPM.PhotoCamera.ApplyCameraSettings("camera_movement_speed")
 end
 
 -- Toggle slow camera mode
@@ -101,28 +113,18 @@ function BPM.PhotoCamera.ToggleSlowMode()
         return
     end
 
-    local statsManager = Ext.Stats.GetStatsManager()
-
     -- If fast mode is active, deactivate it first
     if BPM.PhotoCamera.FastModeActive then
         BPMPrint(1, "Deactivating fast mode before toggling slow mode")
         BPM.PhotoCamera.FastModeActive = false
-        BPM.PhotoCamera.RestoreOriginalSpeed()
     end
 
     -- Toggle slow mode
     BPM.PhotoCamera.SlowModeActive = not BPM.PhotoCamera.SlowModeActive
+    BPMPrint(1, BPM.PhotoCamera.SlowModeActive and "Slow mode activated" or "Slow mode deactivated")
 
-    if BPM.PhotoCamera.SlowModeActive then
-        -- Store original speed and apply slow mode
-        BPM.PhotoCamera.OriginalMovementSpeed = statsManager.ExtraData.PhotoModeCameraMovementSpeed
-        statsManager.ExtraData.PhotoModeCameraMovementSpeed = MCM.Get("slow_mode_speed")
-        BPMPrint(1, "Slow mode activated. Speed: " .. statsManager.ExtraData.PhotoModeCameraMovementSpeed)
-    else
-        -- Restore original speed
-        BPM.PhotoCamera.RestoreOriginalSpeed()
-        BPMPrint(1, "Slow mode deactivated.")
-    end
+    -- Apply only the movement speed setting to reflect the new mode
+    BPM.PhotoCamera.ApplyCameraSettings("camera_movement_speed")
 end
 
 -- Initialize the PhotoCamera module
@@ -131,6 +133,7 @@ function BPM.PhotoCamera.Initialize()
 
     -- Register for StatsLoaded event to set initial values
     Ext.Events.StatsLoaded:Subscribe(function()
+        -- When initializing, apply all settings at once
         BPM.PhotoCamera.ApplyCameraSettings()
     end)
 end

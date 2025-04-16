@@ -28,7 +28,8 @@ function BPM.MCM.HandleSettingChange(payload)
     -- Check if the changed setting is one of our camera settings
     for _, settingId in ipairs(CAMERA_SETTINGS) do
         if payload.settingId == settingId then
-            BPM.PhotoCamera.ApplyCameraSettings()
+            -- Apply only the changed setting
+            BPM.PhotoCamera.ApplyCameraSettings(payload.settingId)
             return
         end
     end
