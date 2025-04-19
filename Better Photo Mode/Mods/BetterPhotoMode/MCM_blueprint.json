@@ -41,10 +41,11 @@
                             "Default": {
                                 "Keyboard": {
                                     "Key": "F",
-                                    "ModifierKeys": [
-                                        "LShift"
-                                    ]
+                                    "ModifierKeys": []
                                 }
+                            },
+                            "Options": {
+                                "PreventAction": false
                             },
                             "Description": "Key for toggling fast camera movement."
                         },
@@ -58,11 +59,12 @@
                             "Type": "keybinding_v2",
                             "Default": {
                                 "Keyboard": {
-                                    "Key": "F",
-                                    "ModifierKeys": [
-                                        "LCtrl"
-                                    ]
+                                    "Key": "G",
+                                    "ModifierKeys": []
                                 }
+                            },
+                            "Options": {
+                                "PreventAction": false
                             },
                             "Description": "Key for toggling slow camera movement."
                         }

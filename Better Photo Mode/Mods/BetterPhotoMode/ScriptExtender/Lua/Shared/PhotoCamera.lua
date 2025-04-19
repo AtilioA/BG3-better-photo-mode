@@ -129,8 +129,6 @@ end
 
 -- Initialize the PhotoCamera module
 function BPM.PhotoCamera.Initialize()
-    BPMPrint(0, "Initializing PhotoCamera module")
-
     -- Register for StatsLoaded event to set initial values
     Ext.Events.StatsLoaded:Subscribe(function()
         -- When initializing, apply all settings at once
