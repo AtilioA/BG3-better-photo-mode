@@ -130,7 +130,7 @@
                                 "DescriptionHandle": "h7a2e114acf4f4d1284029f62976891491bf6"
                             },
                             "Type": "slider_float",
-                            "Default": 2.0,
+                            "Default": 1.0,
                             "Description": "Camera movement speed when slow mode is activated (see MCM keybindings)",
                             "Options": {
                                 "Min": 0.1,
