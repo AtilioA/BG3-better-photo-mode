@@ -1,5 +1,4 @@
 BPM = BPM or {}
-BPM.MCM = {}
 
 local CAMERA_SETTINGS = {
     -- General settings
@@ -20,7 +19,7 @@ local CAMERA_SETTINGS = {
     "camera_lookat_smoothing"
 }
 
-function BPM.MCM.HandleSettingChange(payload)
+function BPM.HandleSettingChange(payload)
     if not payload or payload.modUUID ~= ModuleUUID then
         return
     end

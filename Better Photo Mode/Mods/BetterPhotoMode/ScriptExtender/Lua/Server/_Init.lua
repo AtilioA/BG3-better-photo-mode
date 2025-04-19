@@ -9,5 +9,5 @@ else
 end
 
 Ext.Events.SessionLoaded:Subscribe(function()
-    Ext.ModEvents.BG3MCM["MCM_Setting_Saved"]:Subscribe(BPM.MCM.HandleSettingChange)
+    Ext.ModEvents.BG3MCM["MCM_Setting_Saved"]:Subscribe(BPM.HandleSettingChange)
 end)

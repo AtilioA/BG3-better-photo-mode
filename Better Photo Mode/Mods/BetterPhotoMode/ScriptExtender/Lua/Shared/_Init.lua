@@ -1,7 +1,4 @@
--- Create BPM table
-Mods = Mods or {}
-Mods.BetterPhotoMode = {}
-BPM = Mods.BetterPhotoMode
+BPM = BPM or {}
 
 -- BPM constants
 BPM.Constants = {
