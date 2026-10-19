@@ -1,5 +1,5 @@
 {
-    "RequiredVersion": 23,
+    "RequiredVersion": 32,
     "ModTable": "BetterPhotoMode",
     "FeatureFlags": [
         "Lua"
